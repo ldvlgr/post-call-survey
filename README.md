@@ -24,10 +24,6 @@ cd serverless
 npm install
 ```
 
-# If you use npm
-npm install
-```
-
 Next, please install the [Twilio CLI](https://www.twilio.com/docs/twilio-cli/quickstart) by running:
 
 ```bash
