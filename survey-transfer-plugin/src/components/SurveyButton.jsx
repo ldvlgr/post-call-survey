@@ -1,5 +1,5 @@
 import React from 'react';
-import { withTaskContext, IconButton } from '@twilio/flex-ui';
+import { withTaskContext, IconButton, TaskHelper } from '@twilio/flex-ui';
 import TransferUtil from '../utils/TransferUtil';
 
 class SurveyButton extends React.Component {
@@ -11,9 +11,11 @@ class SurveyButton extends React.Component {
     }
 
     render() {
+        const isLiveCall = TaskHelper.isLiveCall(this.props.task);
         return <IconButton 
             icon="Bulb"
             title="Survey"
+            disabled={!isLiveCall}
             onClick={() => { this.directTransfer() }} />;
     }
 }
