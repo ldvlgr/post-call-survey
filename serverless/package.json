@@ -1,0 +1,16 @@
+{
+  "name": "post-call-survey",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": "10.17.0"
+  },
+  "dependencies": {
+    "twilio": "^3.48.0",
+    "twilio-flex-token-validator": "^1.5.3"
+  }
+}
