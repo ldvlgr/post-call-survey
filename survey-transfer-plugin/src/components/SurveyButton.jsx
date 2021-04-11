@@ -12,10 +12,11 @@ class SurveyButton extends React.Component {
 
     render() {
         const isLiveCall = TaskHelper.isLiveCall(this.props.task);
+        const isInboundTask = this.props.task.attributes.direction === 'inbound';
         return <IconButton 
             icon="Bulb"
             title="Survey"
-            disabled={!isLiveCall}
+            disabled={!isLiveCall || !isInboundTask }
             onClick={() => { this.directTransfer() }} />;
     }
 }

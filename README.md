@@ -6,7 +6,9 @@ Twilio Flex Plugins allow you to customize the appearance and behavior of [Twili
 ## How it works
 This Flex plugin adds an automatic transfer to an external number when the agent Hangs Up the call. The call transfer is invoked from the beforeHangupCall event handler.  This functionality can be used in conjunction with a Studio IVR flow where caller would be prompted to opt into taking a post-call survey.  The studio flow would have to set a task attribute that can be checked in the beforeHangupCall event handler.
 
-This plugin leverages a Twilio functions to perform the actual call transfer.
+This plugin leverages a Twilio function to perform the actual call transfer through a Twiml Dial API call.
+
+Alternatively, this plugin also includes a Survey Transfer Button on the Call Canvas to allow the agent to initiate the post-call survey transfer. Disable or remove this button if not required for your implementation.
 
 The application repo contains both a Flex Plugin project as well as a Twilio Serverless project.  Deploy the Serverless function before deploying the Flex plugin.
 

@@ -2,7 +2,6 @@ import React from 'react';
 import { VERSION } from '@twilio/flex-ui';
 import { FlexPlugin } from 'flex-plugin';
 
-import CustomTaskListContainer from './components/CustomTaskList/CustomTaskList.Container';
 import reducers, { namespace } from './states';
 import SurveyButton from '../src/components/SurveyButton';
 import TransferUtil from './utils/TransferUtil';
@@ -24,27 +23,27 @@ export default class SurveyTransferPlugin extends FlexPlugin {
   init(flex, manager) {
     this.registerReducers(manager);
 
-    //const options = { sortOrder: -1 };
-    // flex.AgentDesktopView
-    //   .Panel1
-    //   .Content
-    //   .add(<CustomTaskListContainer key="SurveyTransferPlugin-component" />, options);
-
-    //Temp button for testing
+    //Survey transfer button for agent-initiated post-call survey transfer
     flex.CallCanvasActions.Content.add(
       <SurveyButton icon="Eye" key="survey_transfer_button"></SurveyButton>
     );//
 
     //Automatic transfer to Survey IVR
     flex.Actions.addListener('beforeHangupCall', async (payload) => {
-      //add logic to check survey attribute
-      //if (payload.task.attributes.survey == 'true') {
+      const isInboundTask = payload.task.attributes.direction === 'inbound';
+      //Inbound only
+      if (isInboundTask) {
+
+        //add logic to check survey attribute (set in IVR Studio flow)
+        //if (payload.task.attributes.survey == 'true') {
+
         console.log('Before Hangup Call');
         const callSid = payload.task.attributes.call_sid;
         const callerId = payload.task.attributes.to;
         console.log('Survey transfer started: ' + callSid);
         await TransferUtil.surveyTransfer(callSid, callerId);
-      //}
+        //}
+      }
     });
 
   }
