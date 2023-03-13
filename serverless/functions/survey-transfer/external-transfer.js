@@ -23,14 +23,14 @@ exports.handler = TokenValidator(async function (context, event, callback) {
     console.log(JSON.stringify(call));
     response.appendHeader('Content-Type', 'application/json');
     response.setBody(call);
-    callback(null, response);
+    return callback(null, response);
   }
   catch (err) {
     response.appendHeader('Content-Type', 'plain/text');
     response.setBody(err.message);
     console.log(err.message);
     response.setStatusCode(500);
-    callback(null, response);
+    return callback(null, response);
 
   }
 });

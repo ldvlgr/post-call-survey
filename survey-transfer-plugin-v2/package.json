@@ -1,0 +1,23 @@
+{
+  "name": "survey-transfer-plugin-v2",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "postinstall": "flex-plugin pre-script-check"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.1.5",
+    "@emotion/styled": "^11.1.5",
+    "@twilio/flex-plugin-scripts": "6.0.3",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "prop-types": "^15.7.2",
+    "@twilio-paste/core": "^17.0.1",
+    "@twilio-paste/icons": "^9.4.2"
+
+  },
+  "devDependencies": {
+    "@twilio/flex-ui": "^2",
+    "react-test-renderer": "17.0.2"
+  }
+}
